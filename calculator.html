@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<style>
+    .mainouter{
+        margin-top: 93px;
+    }
+    .heading{
+        margin: 0px auto;
+        width: 300px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+    }
+    #result{
+        text-align: right;
+        width: 296px;
+        height: 95px;
+        background-color:rgb(51,133,209);
+        box-shadow: rgba(39, 9, 228, 0.2) 0px 2px 8px 0px; ;
+        
+    }
+    .lp{
+
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        gap: 25px 20px;
+        justify-content: space-around;
+        padding: 1rem 0;
+        flex-wrap: wrap;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        
+    }
+    input{
+        width: 50px;
+        height: 41px;
+        font-size: 18px;
+        background: none;
+        border: none
+        
+      
+    }
+</style>
+<body>
+    <div class="mainouter">
+    <div class="heading">CALCULATOR
+        <div>
+            <input type="text" id="result">
+        
+        </div>
+        <div class="lp">
+            <input type="button" value="C" onclick="clearr()">
+            <input type="button" value="/" onclick="cal('/')">
+            <input type="button" value="*" onclick="cal('*')">
+            <input type="button" value="⌫" onclick="removed()">
+            <input type="button" value="7" onclick="cal(7)">
+            <input type="button" value="8" onclick="cal(8)">
+            <input type="button" value="9" onclick="cal(9)">
+            <input type="button" value="+" onclick="cal('+')">
+            <input type="button" value="4" onclick="cal(4)">
+            <input type="button" value="5" onclick="cal(5)">
+            <input type="button" value="6" onclick="cal(6)">
+            <input type="button" value="-" onclick="cal('-')">
+            <input type="button" value="1" onclick="cal(1)">
+            <input type="button" value="2" onclick="cal(2)">
+            <input type="button" value="3" onclick="cal(3)">
+            <input type="button" value="=" onclick="calculateresult()">
+            <input type="button" value="0" onclick="cal(0)">
+            <input type="button" value="." onclick="cal('.')">
+        </div>
+        </div>
+    </div>
+</div>
+    <script>
+            function cal(value){
+                document.getElementById("result").value +=value;
+            }
+            function removed(){
+               let R= document.getElementById("result").value;
+               let newR= R.slice(0,-1);
+               document.getElementById("result").value=newR;
+            }
+            function clearr(){
+                var inputElement=document.getElementById("result");
+                inputElement.value='';
+            }
+            function calculateresult(){  
+                document.getElementById("result").value= eval(document.getElementById("result").value);
+        }
+        
+            
+    </script>
+</body>
+</html>
